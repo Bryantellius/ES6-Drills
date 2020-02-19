@@ -17,15 +17,14 @@ let getFirstNameConcise = name => name.split(' ')[0];
 console.log(getFirstName('Ben Bryant'));
 console.log(getFirstNameConcise('Ben Bryant'));
 
-let math = (a, b) => {
-    let exponent = a^b;
-    let multiply = a*b;
-    return {exponent, multiply};
-}
-
-let mathO = math(2, 3);
-console.log(`${mathO.exponent}`);
-console.log(`${mathO.multiply}`);
+let math = (a, b) => ({
+    exponent: Math.pow(a,b),
+    multiply: a*b
+});
+let mathO = math(3, 3);
+let {exponent, multiply} = mathO;
+console.log(`${exponent}`);
+console.log(`${multiply}`);
 
 let cityFood = (name, location, favFood) => {
     console.log(`My name is ${name}, I live in ${location}, and I like ${favFood}.`);
@@ -40,9 +39,10 @@ let name = 'Ben';
 let myFunction = (para) => {
     let strArr = [...para];
     console.log(strArr);
-    for(let i = 0; i<strArr.length; i++){
-        console.log(strArr[i]);
-    }
+    // for(let i = 0; i<strArr.length; i++){
+    //     console.log(strArr[i]);
+    // }
+    strArr.forEach(index => console.log(index));
 }
 
 myFunction('Barney Stinson');
